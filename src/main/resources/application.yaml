@@ -1,0 +1,27 @@
+spring:
+  name:
+    application: portaria-projeto
+
+
+  #config banco de dados
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5434/portaria
+    username: postgres
+    password: 1234
+
+  #config JPA + hibarnate
+  jpa:
+    hibernate:
+      ddl-auto: update # atualiza banco
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: true
+
+
+
+
+server:
+  port: 8080
