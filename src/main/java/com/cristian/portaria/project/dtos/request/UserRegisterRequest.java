@@ -1,4 +1,4 @@
-package com.cristian.portaria.project.dtos;
+package com.cristian.portaria.project.dtos.request;
 
 import com.cristian.portaria.project.role.Role;
 

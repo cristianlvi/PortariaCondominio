@@ -19,7 +19,7 @@ import java.util.Objects;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor()
+@AllArgsConstructor
 public class User implements UserDetails {
 
     @Id
@@ -33,6 +33,10 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role roles;
 
+    @OneToOne
+    @JoinColumn(name = "id_morador", nullable = false)
+    private Morador morador;
+
     public User(String login, String password, Role roles) {
         this.login = login;
         this.password = password;
@@ -45,6 +49,7 @@ public class User implements UserDetails {
                 new SimpleGrantedAuthority("ROLE_MORADOR"), new SimpleGrantedAuthority("ROLE_VISITANTE"));
         else return List.of(new SimpleGrantedAuthority("ROLE_MORADOR"));
     }
+
     @Override
     public String getUsername() {
         return login;

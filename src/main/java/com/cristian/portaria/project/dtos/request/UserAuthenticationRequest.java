@@ -1,4 +1,4 @@
-package com.cristian.portaria.project.dtos;
+package com.cristian.portaria.project.dtos.request;
 
 public record UserAuthenticationRequest(
         String login,

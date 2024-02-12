@@ -1,8 +1,8 @@
 package com.cristian.portaria.project.controller;
 
-import com.cristian.portaria.project.dtos.UserAuthenticationRequest;
-import com.cristian.portaria.project.dtos.UserRegisterRequest;
-import com.cristian.portaria.project.services.UserService;
+import com.cristian.portaria.project.dtos.request.UserAuthenticationRequest;
+import com.cristian.portaria.project.dtos.request.UserRegisterRequest;
+import com.cristian.portaria.project.services.security.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

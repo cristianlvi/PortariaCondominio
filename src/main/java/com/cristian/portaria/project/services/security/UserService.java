@@ -1,7 +1,7 @@
-package com.cristian.portaria.project.services;
+package com.cristian.portaria.project.services.security;
 
 import com.cristian.portaria.project.domain.morador.User;
-import com.cristian.portaria.project.dtos.UserRegisterRequest;
+import com.cristian.portaria.project.dtos.request.UserRegisterRequest;
 import com.cristian.portaria.project.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

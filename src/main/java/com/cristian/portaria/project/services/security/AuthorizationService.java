@@ -1,4 +1,4 @@
-package com.cristian.portaria.project.services;
+package com.cristian.portaria.project.services.security;
 
 import com.cristian.portaria.project.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
