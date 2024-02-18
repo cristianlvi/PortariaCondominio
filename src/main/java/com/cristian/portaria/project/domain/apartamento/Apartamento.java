@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.util.Objects;
 
 
-@Entity
+@Entity(name = "APARTAMENTOS")
 @Table(name = "APARTAMENTOS")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,8 +21,8 @@ public class Apartamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "n_apartamento", nullable = false)
-    private String numeroApartamento;
+    @Column(name = "numero", nullable = false)
+    private String numero;
 
     @Column(name = "andar", nullable = false)
     private int andar;
@@ -36,22 +36,19 @@ public class Apartamento {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Apartamento that = (Apartamento) o;
-        return andar == that.andar
-                && Objects.equals(id, that.id)
-                && Objects.equals(numeroApartamento, that.numeroApartamento)
-                && situacao == that.situacao;
+        return andar == that.andar && Objects.equals(id, that.id) && Objects.equals(numero, that.numero) && situacao == that.situacao;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, numeroApartamento, andar, situacao);
+        return Objects.hash(id, numero, andar, situacao);
     }
 
     @Override
     public String toString() {
         return "Apartamento{" +
                 "id=" + id +
-                ", numeroApartamento='" + numeroApartamento + '\'' +
+                ", numero='" + numero + '\'' +
                 ", andar=" + andar +
                 ", situacao=" + situacao +
                 '}';

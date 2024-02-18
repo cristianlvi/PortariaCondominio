@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Max;
 
 public record ApartamentoRequest(
 
-        String numeroApartamento,
+        String numero,
 
         @Max(10)
         int andar,

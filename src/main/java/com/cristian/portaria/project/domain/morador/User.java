@@ -34,7 +34,7 @@ public class User implements UserDetails {
     private Role roles;
 
     @OneToOne
-    @JoinColumn(name = "id_morador", nullable = false)
+    @JoinColumn(name = "morador_id")
     private Morador morador;
 
     public User(String login, String password, Role roles) {

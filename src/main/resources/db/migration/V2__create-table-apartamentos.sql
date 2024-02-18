@@ -1,0 +1,51 @@
+CREATE TABLE IF NOT EXISTS APARTAMENTOS (
+
+    id SERIAL PRIMARY KEY,
+    numero VARCHAR(5) NOT NULL,
+    andar INTEGER NOT NULL,
+    situacao VARCHAR(100) NOT NULL
+
+);
+
+
+INSERT INTO apartamentos (numero, andar, situacao) VALUES
+    ('1',1,'DESOCUPADO'),
+    ('2',1,'DESOCUPADO'),
+    ('3',1,'DESOCUPADO'),
+    ('4',1,'DESOCUPADO'),
+    ('5',2,'DESOCUPADO'),
+    ('6',2,'DESOCUPADO'),
+    ('7',2,'DESOCUPADO'),
+    ('8',2,'DESOCUPADO'),
+    ('9',3,'DESOCUPADO'),
+    ('10',3,'DESOCUPADO'),
+    ('11',3,'DESOCUPADO'),
+    ('12',3,'DESOCUPADO'),
+    ('13',4,'DESOCUPADO'),
+    ('14',4,'DESOCUPADO'),
+    ('15',4,'DESOCUPADO'),
+    ('16',4,'DESOCUPADO'),
+    ('17',5,'DESOCUPADO'),
+    ('18',5,'DESOCUPADO'),
+    ('19',5,'DESOCUPADO'),
+    ('20',5,'DESOCUPADO'),
+    ('21',6,'DESOCUPADO'),
+    ('22',6,'DESOCUPADO'),
+    ('23',6,'DESOCUPADO'),
+    ('24',6,'DESOCUPADO'),
+    ('25',7,'DESOCUPADO'),
+    ('26',7,'DESOCUPADO'),
+    ('27',7,'DESOCUPADO'),
+    ('28',7,'DESOCUPADO'),
+    ('29',8,'DESOCUPADO'),
+    ('30',8,'DESOCUPADO'),
+    ('31',8,'DESOCUPADO'),
+    ('32',8,'DESOCUPADO'),
+    ('33',9,'DESOCUPADO'),
+    ('34',9,'DESOCUPADO'),
+    ('35',9,'DESOCUPADO'),
+    ('36',9,'DESOCUPADO'),
+    ('37',10,'DESOCUPADO'),
+    ('38',10,'DESOCUPADO'),
+    ('39',10,'DESOCUPADO'),
+    ('40',10,'DESOCUPADO');

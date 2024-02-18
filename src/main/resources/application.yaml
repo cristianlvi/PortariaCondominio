@@ -21,6 +21,13 @@ spring:
     generate-ddl: true
 
 
+  flyway:
+    enabled: true
+    locations:
+      classpath: db.migration
+    baseline-on-migrate: true
+
+
 
 
 server:

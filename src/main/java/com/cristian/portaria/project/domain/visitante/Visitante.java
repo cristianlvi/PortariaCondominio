@@ -19,13 +19,14 @@ import java.util.Objects;
 public class Visitante {
 
     @Id
+    @Column(unique = true)
     private String cpf;
 
     @Column(name = "nome_visitante")
     private String nome;
 
     @ManyToOne
-    @JoinColumn(name = "id_morador", nullable = false)
+    @JoinColumn(name = "morador_id", nullable = false)
     private Morador morador;
 
     @Override

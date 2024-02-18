@@ -3,6 +3,7 @@ package com.cristian.portaria.project.controller;
 import com.cristian.portaria.project.dtos.request.UserAuthenticationRequest;
 import com.cristian.portaria.project.dtos.request.UserRegisterRequest;
 import com.cristian.portaria.project.services.security.UserService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,16 +24,18 @@ public class AuthenticationController {
     private UserService userService;
 
 
+    @Operation(summary = "Faz login na aplicação", method = "POST")
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody @Valid UserAuthenticationRequest userRequest) {
+    public ResponseEntity<?> login(@RequestBody @Valid UserAuthenticationRequest userRequest) {
         var userNamePassword = new UsernamePasswordAuthenticationToken(userRequest.login(), userRequest.password());
-        var auth = this.authenticationManager.authenticate(userNamePassword);
+        var auth = authenticationManager.authenticate(userNamePassword);
 
         return ResponseEntity.ok().build();
     }
 
+    @Operation(summary = "Registra um novo user", method = "POST")
     @PostMapping("/register")
-    public ResponseEntity register(@RequestBody @Valid UserRegisterRequest registerRequest) throws Exception {
+    public ResponseEntity<?> register(@RequestBody @Valid UserRegisterRequest registerRequest) throws Exception {
         UserRegisterRequest userRequest = userService.registerUser(registerRequest);
 
         return ResponseEntity.ok().body("Usuario registrado com sucesso");
