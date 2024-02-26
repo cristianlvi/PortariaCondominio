@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PingController {
 
 
-    @RequestMapping(method = RequestMethod.GET, value = "p1")
+    @RequestMapping(method = RequestMethod.GET)
     public String ping() {
         return "ping";
     }

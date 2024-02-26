@@ -22,37 +22,42 @@ public class ApartamentoController {
     private ApartamentoService apartamentoService;
 
     @Operation(summary = "Atualiza o apartamento", method = "PUT")
-
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Atualiza o apartamento"),
+            @ApiResponse(responseCode = "400", description = "Não atualiza o apartamento")
+    })
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/atualiza")
-    public ResponseEntity atualizaApartamento(@RequestBody ApartamentoRequest apartamentoRequest) {
+    public ResponseEntity<ApartamentoResponse> atualizaApartamento(@RequestBody ApartamentoRequest apartamentoRequest) {
         ApartamentoResponse response = apartamentoService.atualizaApartamento(apartamentoRequest);
 
         return ResponseEntity.ok().body(response);
     }
 
     @Operation(summary = "Busca um apartamento pelo seu número", method = "GET")
-
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Busca o apartamento pelo número"),
+            @ApiResponse(responseCode = "404", description = "Falha na busca pelo apartamento")
+    })
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/{numero}")
-    public ResponseEntity getApartamentoNumero(@PathVariable String numero) {
+    public ResponseEntity<ApartamentoResponse> getApartamentoNumero(@PathVariable String numero) {
         ApartamentoResponse response = apartamentoService.buscaApartamentoPeloNumero(numero);
 
         return ResponseEntity.ok().body(response);
     }
 
+
     @Operation(summary = "Busca todos os apartamentos pelo andar", method = "GET")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "buscou todos os apartamentos"),
-            @ApiResponse(responseCode = "400", description = "Parametros invalidos")
+            @ApiResponse(responseCode = "400", description = "Parâmetros invalidos")
     })
     @GetMapping("/andar/{andar}")
-    public ResponseEntity todosApartamentosAndar(@PathVariable int andar) {
+    public ResponseEntity<?> todosApartamentosAndar(@PathVariable int andar) {
         ApartamentoResponse listResponse = apartamentoService.buscaTodosApartamentosPeloAndar(andar);
 
         return ResponseEntity.ok().body(listResponse);
-
-
     }
 
 

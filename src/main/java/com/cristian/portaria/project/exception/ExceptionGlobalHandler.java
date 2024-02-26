@@ -1,8 +1,6 @@
-package com.cristian.portaria.project.exception.handler;
+package com.cristian.portaria.project.exception;
 
-import com.cristian.portaria.project.exception.custons.ApartamentoException;
-import com.cristian.portaria.project.exception.custons.ApiError;
-import com.cristian.portaria.project.exception.custons.VerificaAndarException;
+import com.cristian.portaria.project.exception.custons.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -34,6 +32,30 @@ public class ExceptionGlobalHandler {
                 ex.getMessage()
         );
         return ResponseEntity.status(apiError.getErrorCode()).body(apiError);
+    }
+
+    @ExceptionHandler(UserException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    public ResponseEntity<?> handlerUserExiste(UserException ex) {
+        ApiError apiError = new ApiError(
+                HttpStatus.FORBIDDEN.value(),
+                LocalDateTime.now(),
+                ex.getMessage()
+        );
+        return ResponseEntity.status(apiError.getErrorCode()).body(apiError);
+    }
+
+    @ExceptionHandler(AuthenticationException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    public ResponseEntity<?> handlerErroLoginUser(AuthenticationException ex) {
+        ApiError apiError = new ApiError(
+                HttpStatus.FORBIDDEN.value(),
+                LocalDateTime.now(),
+                ex.getMessage()
+        );
+        return ResponseEntity.status(apiError.getErrorCode()).body(apiError);
+
+
     }
 
 
